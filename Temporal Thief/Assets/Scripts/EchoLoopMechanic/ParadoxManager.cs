@@ -1,12 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ParadoxManager : MonoBehaviour
 {
     //other scripts need tro interact with this
     //visual effect after being caught
     //trigger catching the player
+    public static ParadoxManager Instance;
+
 
     // Start is called before the first frame update
     void Start()
@@ -19,11 +22,17 @@ public class ParadoxManager : MonoBehaviour
     {
         
     }
+    private void Awake()
+    {
+        Instance = this;
+    }
 
-    //[Later]
-    //restart Level
-    //time rewinds/return to location
-    //sounds play
-    //screen flashes or blinks
+    //Lose trigger
+    public void TriggerParadox(Vector3 echoPos)
+    {
+        Debug.Log("Paradox trigger! Echo saw player.");
+        //sound effects, animations, etc.
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
 
 }

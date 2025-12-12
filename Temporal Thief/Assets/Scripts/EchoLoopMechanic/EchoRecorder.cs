@@ -13,6 +13,12 @@ public class EchoRecorder : MonoBehaviour
     float t = 0f; // how many seconds we’ve been recording
     float accum = 0f; // timer to space out samples evenly
 
+
+    private void Start()
+    {
+        
+    }
+
     void Update()
     {
         if (!IsRecording) return; // if we aren’t recording, do nothing
